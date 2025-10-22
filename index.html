@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-hermes">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hermes Agentic Review System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Base variables for the default theme (Hermes) */
+      :root, .theme-hermes {
+        --color-primary: #F37021;
+        --color-secondary: #D97706;
+        --color-accent: #F59E0B;
+        --color-background-start: #FEF3C7;
+        --color-background-end: #FED7AA;
+        --color-body-bg-start: #fef3c7;
+        --color-body-bg-end: #fde68a;
+        --color-text-primary: #78350F;
+        --color-text-secondary: #92400E;
+        --color-text-on-primary: #FFFFFF;
+        --color-header-start: #78350F;
+        --color-header-end: #92400E;
+        --color-card-bg-start: #FFFFFF;
+        --color-card-bg-end: #FEF3C7;
+        --color-border: #F59E0B;
+        --color-tab-active-start: #F37021;
+        --color-tab-active-end: #D97706;
+        --color-tab-inactive-bg: #FFFFFF;
+        --color-tab-inactive-text: #92400E;
+      }
+      .theme-blue-sky {
+        --color-primary: #0ea5e9; --color-secondary: #38bdf8; --color-accent: #facc15; --color-background-start: #e0f2fe; --color-background-end: #bae6fd; --color-body-bg-start: #f0f9ff; --color-body-bg-end: #e0f2fe; --color-text-primary: #075985; --color-text-secondary: #0369a1; --color-text-on-primary: #FFFFFF; --color-header-start: #0369a1; --color-header-end: #0ea5e9; --color-card-bg-start: #FFFFFF; --color-card-bg-end: #f0f9ff; --color-border: #7dd3fc; --color-tab-active-start: #0ea5e9; --color-tab-active-end: #38bdf8; --color-tab-inactive-bg: #FFFFFF; --color-tab-inactive-text: #075985;
+      }
+      .theme-snow-white {
+        --color-primary: #64748b; --color-secondary: #94a3b8; --color-accent: #3b82f6; --color-background-start: #f8fafc; --color-background-end: #f1f5f9; --color-body-bg-start: #f8fafc; --color-body-bg-end: #e2e8f0; --color-text-primary: #1e293b; --color-text-secondary: #334155; --color-text-on-primary: #FFFFFF; --color-header-start: #334155; --color-header-end: #475569; --color-card-bg-start: #FFFFFF; --color-card-bg-end: #f8fafc; --color-border: #cbd5e1; --color-tab-active-start: #3b82f6; --color-tab-active-end: #60a5fa; --color-tab-inactive-bg: #FFFFFF; --color-tab-inactive-text: #334155;
+      }
+      .theme-sparkling-galaxy {
+        --color-primary: #a855f7; --color-secondary: #d946ef; --color-accent: #ec4899; --color-background-start: #1e1b4b; --color-background-end: #312e81; --color-body-bg-start: #0c1021; --color-body-bg-end: #111827; --color-text-primary: #e0e7ff; --color-text-secondary: #c7d2fe; --color-text-on-primary: #FFFFFF; --color-header-start: #1e1b4b; --color-header-end: #4c1d95; --color-card-bg-start: #1e293b; --color-card-bg-end: #334155; --color-border: #4f46e5; --color-tab-active-start: #a855f7; --color-tab-active-end: #d946ef; --color-tab-inactive-bg: #374151; --color-tab-inactive-text: #e5e7eb;
+      }
+      .theme-deep-ocean {
+        --color-primary: #14b8a6; --color-secondary: #2dd4bf; --color-accent: #67e8f9; --color-background-start: #0f766e; --color-background-end: #115e59; --color-body-bg-start: #cffafe; --color-body-bg-end: #a5f3fc; --color-text-primary: #134e4a; --color-text-secondary: #115e59; --color-text-on-primary: #FFFFFF; --color-header-start: #134e4a; --color-header-end: #115e59; --color-card-bg-start: #f0fdfa; --color-card-bg-end: #ccfbf1; --color-border: #5eead4; --color-tab-active-start: #14b8a6; --color-tab-active-end: #2dd4bf; --color-tab-inactive-bg: #FFFFFF; --color-tab-inactive-text: #134e4a;
+      }
+      .theme-alps {
+        --color-primary: #475569; --color-secondary: #64748b; --color-accent: #06b6d4; --color-background-start: #e2e8f0; --color-background-end: #f1f5f9; --color-body-bg-start: #f8fafc; --color-body-bg-end: #e2e8f0; --color-text-primary: #1e293b; --color-text-secondary: #334155; --color-text-on-primary: #FFFFFF; --color-header-start: #1e293b; --color-header-end: #334155; --color-card-bg-start: #ffffff; --color-card-bg-end: #f1f5f9; --color-border: #94a3b8; --color-tab-active-start: #06b6d4; --color-tab-active-end: #22d3ee; --color-tab-inactive-bg: #FFFFFF; --color-tab-inactive-text: #1e293b;
+      }
+      .theme-forest {
+        --color-primary: #16a34a; --color-secondary: #22c55e; --color-accent: #f59e0b; --color-background-start: #14532d; --color-background-end: #166534; --color-body-bg-start: #f0fdf4; --color-body-bg-end: #dcfce7; --color-text-primary: #14532d; --color-text-secondary: #166534; --color-text-on-primary: #FFFFFF; --color-header-start: #14532d; --color-header-end: #166534; --color-card-bg-start: #ffffff; --color-card-bg-end: #f0fdf4; --color-border: #4ade80; --color-tab-active-start: #16a34a; --color-tab-active-end: #22c55e; --color-tab-inactive-bg: #FFFFFF; --color-tab-inactive-text: #14532d;
+      }
+      .theme-flora {
+        --color-primary: #db2777; --color-secondary: #ec4899; --color-accent: #a78bfa; --color-background-start: #fce7f3; --color-background-end: #fbcfe8; --color-body-bg-start: #fdf2f8; --color-body-bg-end: #fce7f3; --color-text-primary: #86198f; --color-text-secondary: #9d174d; --color-text-on-primary: #FFFFFF; --color-header-start: #9d174d; --color-header-end: #be185d; --color-card-bg-start: #ffffff; --color-card-bg-end: #fdf2f8; --color-border: #f9a8d4; --color-tab-active-start: #db2777; --color-tab-active-end: #ec4899; --color-tab-inactive-bg: #FFFFFF; --color-tab-inactive-text: #9d174d;
+      }
+      .theme-ferrari {
+        --color-primary: #dc2626; --color-secondary: #ef4444; --color-accent: #facc15; --color-background-start: #171717; --color-background-end: #262626; --color-body-bg-start: #000000; --color-body-bg-end: #171717; --color-text-primary: #f5f5f5; --color-text-secondary: #e5e5e5; --color-text-on-primary: #FFFFFF; --color-header-start: #dc2626; --color-header-end: #b91c1c; --color-card-bg-start: #262626; --color-card-bg-end: #404040; --color-border: #525252; --color-tab-active-start: #dc2626; --color-tab-active-end: #ef4444; --color-tab-inactive-bg: #404040; --color-tab-inactive-text: #e5e5e5;
+      }
+      .theme-fendi {
+        --color-primary: #b45309; --color-secondary: #d97706; --color-accent: #ca8a04; --color-background-start: #f5f5f4; --color-background-end: #e7e5e4; --color-body-bg-start: #fdfcfb; --color-body-bg-end: #f5f5f4; --color-text-primary: #292524; --color-text-secondary: #44403c; --color-text-on-primary: #FFFFFF; --color-header-start: #292524; --color-header-end: #1c1917; --color-card-bg-start: #ffffff; --color-card-bg-end: #f5f5f4; --color-border: #d6d3d1; --color-tab-active-start: #b45309; --color-tab-active-end: #d97706; --color-tab-inactive-bg: #FFFFFF; --color-tab-inactive-text: #44403c;
+      }
+      
+      /* Custom scrollbar for a more polished look */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--color-background-start);
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--color-secondary);
+        border-radius: 10px;
+        border: 2px solid var(--color-background-start);
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--color-primary);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.3.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.26.0",
+    "openai": "https://aistudiocdn.com/openai@^6.6.0",
+    "pdfjs-dist": "https://aistudiocdn.com/pdfjs-dist@^4.5.136"
+  }
+}
+</script>
+</head>
+  <body class="bg-[var(--color-body-bg-start)]">
+    <div id="root"></div>
+  </body>
+</html>

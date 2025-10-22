@@ -1,0 +1,5 @@
+{
+  "name": "Hermes Agentic Review System",
+  "description": "An intelligent agentic system for document analysis and compliance verification, featuring a WOW UI, status indicators, and an interactive dashboard for running sequential AI agents.",
+  "requestFramePermissions": []
+}
